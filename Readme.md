@@ -553,4 +553,390 @@ console.log(string.charCodeAt(lastIndex)); // t ASCII number is 116
 
 ![Output](./Images/2/25.png)
 
+> indexOf() : Takes a substring and if the substring exists in a string it returns the first position of the substring if does. not exists it return -1.
+
+### Syntax :
+
+``` JavaScript
+
+string.indexOf(substring)
+
+```
+
+### Example :
+
+``` JavaScript
+
+let string = "30 Days of JavaScript"
+
+console.log(string.indexOf('D'));
+
+console.log(string.indexOf("Days"));
+
+console.log(string.indexOf("days"));
+
+console.log(string.indexOf('a'));
+
+console.log(string.indexOf('JavaSript'));
+
+console.log(string.indexOf('Script'));
+
+console.log(string.indexOf('script'));
+
+```
+### Output
+
+![Output](./Images/2/26.png)
+
+> lastIndexOf() : Takes a substring and if the substring exists in a string it returns the last position of the substring if it does not exist it returns -1.
+
+### Syntax :
+
+``` JavaScript
+
+// Syntax 
+
+string.lastIndexOf(substring);
+
+```
+
+### Example :
+
+``` JavaScript
+
+let string= 'I love JavaSript. If you do not love JavaSript what else can you love.';
+
+console.log(string.lastIndexOf('JavaScript'));
+
+console.log(string.lastIndexOf('love'));
+
+console.log(string.lastIndexOf('you'));
+
+```
+
+### Output :
+
+![Output](./Images/2/27.png)
+
+> concat() : it takes many substrings and joins them.
+
+### Syntax :
+
+``` JavaScript
+
+string.concat(substring,substring,substring);
+
+```
+
+### Example :
+
+``` JavaScript
+
+let string="30";
+
+console.log(string.concat("Days","Of","JavaScript"));
+
+let country="Fin";
+
+console.log(string.concat("land"));
+
+```
+
+### Output :
+
+![Output](./Images/2/28.png)
+
+> startsWith() : It takes a substring as an argument and it checks if the string starts with that speified substring.It returns a boolean value either **true** or **false**
+
+### Syntax :
+
+``` JavaScript
+
+string.startsWith(substring);
+
+```
+
+### Example : 
+
+``` JavaScript
+
+let string = "Love is the best thing in the world";
+
+console.log(string.startsWith('Love')); // true
+
+console.log(string.startsWith('love')); // false
+
+console.log(string.startsWith('world')); // false
+
+let country='EdinBurgh';
+
+console.log(country.startsith('Edin')); // true
+
+console.log(country.startsWith('edin')); // false
+
+console.log(country.startsWith('land')); // false
+
+```
+
+### Output :
+
+![Output](./Images/2/29.png)
+
+> endsWith() : It takes a substring as an argument and it checks if the string ends with that specified substring.It returns a boolean value either **true** or **false**.
+
+### Syntax :
+
+``` JavaScript
+
+string.endsWith(substring);
+
+```
+
+### Example :
+
+``` JavaScript
+
+let string = "Love is the most powerful feeling in the world."
+
+console.log(string.endsWith('World.'));
+
+console.log(string.endsWith('world.'));
+
+console.log(string.endsWith('in the world.'));
+
+let country = 'Europe';
+
+console.log(country.endsWith('rope'));
+
+console.log(country.endsWith('Rope'));
+
+console.log(country.endsWith('land'));
+
+```
+
+### Output :
+
+![Output](./Images/2/30.png)
+
+> search() : It takes a substring as an argument and it returns the index of the first match. The search value an be a string or a regular expression pattern.
+
+### Syntax :
+
+``` JavaScript
+
+string.search(substring);
+
+```
+
+### Example :
+
+``` JavaScript
+
+let string = "I love JavaSript. If you do not love JavaScript what else an you love".
+
+console.log(string.search('love'));
+
+console.log(string.search(/javasript/gi));
+
+```
+
+### Output :
+
+![Output](./Images/2/31.png)
+
+> repeat() : It takes a number as an argument and returns the repeated version of the string.
+
+### Syntax :
+
+``` JavaScript 
+
+string.repeat(n);
+
+```
+
+### Example :
+
+``` JavaScript
+
+let string="love";
+
+console.log(string.repeat(5));
+
+```
+
+### Output :
+
+![Output](./Images/2/32.png)
+
+## Checking Data Types and Casting :
+
+To check the data type of a certain variable we use the ***typeof*** method.
+
+### Example :
+
+``` JavaScript
+
+// Different javascript data types 
+// Let's delare different data types
+
+let firstName ="Dibyansh";  // string
+let lastName="Sharma";     // string
+let country="Europe";     // string
+let age=22;              // number
+let job;                // undefined, because a value was not assigned.
+
+
+console.log(typeof 'Dibyansh'); // string
+
+console.log(typeof firstName); // string
+
+console.log(typeof 10);       // number
+ 
+console.log(typeof 3.14);    // number
+
+console.log(typeof true);   // boolean
+
+console.log(typeof false); // boolean
+
+console.log(typeof NaN);  // number
+
+console.log(typeof job); // undefined
+
+console.log(typeof undefined); // undefined
+
+console.log(typeof null);   // object
+
+```
+
+### Output :
+
+![Output](./Images/2/33.png)
+
+## Changing Data Type (Casting)
+
+- ***Casting*** : Converting one data type to another data type. We use **parseInt()**, **parseFloat()**, **Number()**, **+ sign**, **str()** . When we do arithmetic operations string numbers should be first converted to integer or float if not it returns an ***error***.
+
+### String to Int :
+
+- We can convert string number to a number . Any number inside a quote is a string number. An example of a string number : '10', '5', etc. We can convert string to number using the following methods :
+
+- **parseInt()**
+- **Number**
+- **Plus sign(+)**
+
+### Example :
+
+``` JavaScript
+
+let num = '10';
+
+let numInt = parseInt(num);
+
+console.log(numInt); // 10
+
+```
+
+``` JavaScript
+
+let num ='10';
+
+let numInt= Number(num);
+
+console.log(numInt); // 10
+
+```
+
+``` JavaScript
+
+let num = '10';
+
+let numInt= +num;
+
+console.log(numInt) // 10
+
+```
+
+### Output:
+
+![Output](./Images/2/34.png)
+
+![Output](./Images/2/35.png)
+
+![Output](./Images/2/36.png)
+
+
+## String to Float :
+
+- We can convert string float number to a float number . Any float number inside a quote is a string float number. An example of a string float number : '9.81', '3.14', '1.44', etc. We can convert string float number to a number using the following methods:
+
+- **parseFloat()**
+- **Number()**
+- **Plus sign(+)**
+
+### Example :
+
+``` JavaScript
+
+let num = '9.81';
+
+let numFloat = parseFloat(num);
+
+console.log(numFloat); // 9.81
+
+```
+
+``` JavaScript
+
+let num ='9.81';
+
+let numFloat= Number(num);
+
+console.log(numFloat); // 9.81
+
+```
+
+``` JavaScript
+
+let num = '9.81';
+
+let numFloat= +num;
+
+console.log(numFloat) // 9.81
+
+```
+
+### Output :
+
+![Output](./Images/2/37.png)
+
+![Output](./Images/2/38.png)
+
+![Output](./Images/2/39.png)
+
+## Float to Int :
+
+ We can convert float numbers to integers.We use the following method to convert float to int.
+
+- parseInt()
+
+### Example :
+
+``` JavaScript
+
+let num =9.81;
+
+let numInt=parseInt(num);
+
+console.log(numInt);
+
+```
+
+### Output :
+
+![Output](./Images/2/40.png)
+
+
+
+
+
 
