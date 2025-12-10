@@ -937,6 +937,653 @@ console.log(numInt);
 
 
 
+---
+
+# Day 3
+
+## Booleans
+
+A boolean data type represents one of the two values **either true or false**. Boolean value is either true or false. The use of these data types will be clear when you start the ***comparison*** operator. Any comparisons return a boolean value which is either true or false.
+
+### Example : Boolean Values :
+
+``` JavaScript
+
+let isLightOn=true;
+let isRaining =false;
+let isHungry = false;
+let isMarried = true;
+let truValue= 4>3;      //true 
+let falseValue = 4<3;      // false
+
+```
+- We agreed thjat boolean values are either true or false.
+
+
+### Truthy Values 
+
+- All numbers (positive and negative) are truthy except zero.
+- All strings are truthy except an empty string ('').
+- The boolean true.
+
+
+### Falsy Values
+
+- 0
+- 0n
+- null
+- undefined
+- NaN
+- the boolean false
+- '',"",``, empty string
+
+> It is good to remember those truthy values and falsy values. In later section, we will use them with conditions to make decisions.
+
+### Undefined
+
+> If we  declare a variable and if we do not assign avalue, the value will be ***undefined***. In addition, to this, if a function is not returning the value, it will be undefined.
+
+### Example :
+
+``` JavaScript
+
+let firstName;
+
+console.log(firstName); // not defined, because it is not assigned to a value yet
+
+```
+
+### Output :
+
+![Output](./Images/3/1)
+
+### Null
+
+### Example :
+
+``` JavaScript
+
+let empty= null
+
+console.log(empty) // -> null , means no value
+
+```
+
+### Output :
+
+![Output](./Images/3/2.png)
+
+
+## Operators
+
+> Assignment Operators : An equal sign in JavaScript is an assignment operator. It uses to assign a variable.
+
+``` JavaScript
+
+let firstName="Dibyansh";
+let country="Europe";
+
+```
+
+***Assignment Operators***
+
+![Assignment Operators](./Images/3/3.jpg)
+
+### Arithmetic Operators 
+
+> Arithmetic operators are mathematical operators.
+
+- Addition(+) : a+b
+- Subtraction(-): a-b
+- Multiplication(*)
+- Division(/): a/b
+- Modulus(%): a%b
+- Exponential(**)
+
+### Example 1 :
+
+``` JavaScript
+
+let numOne=4
+let numTwo=3
+
+let sum=numOne + numTwo
+let diff=numOne - numTwo
+let mult= numOne * numTwo
+let div= numOne / numTwo
+let remainder= numOne % numTwo
+let powerOf= numOne ** numTwo
+
+console.log(sum, diff, mult, div, remainder, powerOf)
+
+```
+
+### Output :
+
+![Output of above code Example](./Images/3/4.png)
+
+### Example 2:
+
+``` JavaScript
+
+const Pi=3.14
+let radius = 100 // length in meter
+
+// Let us calculate area of a circle
+
+const areaOfCircle=Pi*radius*radius
+
+console.log(areaOfCircle)  //314 m
+
+const gravity = 9.81  // in m/s2
+let mass = 72        // in kilogram
+
+// Let us calculate weight of an object
+
+const weight = mass * gravity
+console.log(weight)             706.32 N(Newton)
+
+
+const boilingPoint=100  // temperature in oC, boiling point of water
+const bodyTemp=37      // body temperature in oC
+
+// Concatenating string with numbers using string interpolation
+
+/*
+  The boiling point of water is 100 oC.
+  Human body temperature is 37 oC.
+  The gravity of earth is 9.81 m/s2.
+
+*/
+
+console.log(`The boiling point of water is ${boilingPoint} oC.\n Human body temperature is ${bodyTemp} oC.\nThe gravity of earth is ${gravity} m/s2.`)
+
+```
+
+### Comparison Operators
+
+> In programming we compare values, we use comparison operators to compare two values. We check if a value is ***greater or less or equal to other value***.
+
+![Comparison Operators](./Images/3/5.jpg)
+
+### Example : Comparison Operators
+
+``` JavaScript
+
+console.log(3 > 2)              // true, because 3 is greater than 2
+console.log(3 >= 2)             // true, because 3 is greater than 2
+console.log(3 < 2)              // false,  because 3 is greater than 2
+console.log(2 < 3)              // true, because 2 is less than 3
+console.log(2 <= 3)             // true, because 2 is less than 3
+console.log(3 == 2)             // false, because 3 is not equal to 2
+console.log(3 != 2)             // true, because 3 is not equal to 2
+console.log(3 == '3')           // true, compare only value
+console.log(3 === '3')          // false, compare both value and data type
+console.log(3 !== '3')          // true, compare both value and data type
+console.log(3 != 3)             // false, compare only value
+console.log(3 !== 3)            // false, compare both value and data type
+console.log(0 == false)         // true, equivalent
+console.log(0 === false)        // false, not exactly the same
+console.log(0 == '')            // true, equivalent
+console.log(0 == ' ')           // true, equivalent
+console.log(0 === '')           // false, not exactly the same
+console.log(1 == true)          // true, equivalent
+console.log(1 === true)         // false, not exactly the same
+console.log(undefined == null)  // true
+console.log(undefined === null) // false
+console.log(NaN == NaN)         // false, not equal
+console.log(NaN === NaN)        // false
+console.log(typeof NaN)         // number
+
+console.log('mango'.length == 'avocado'.length)  // false
+console.log('mango'.length != 'avocado'.length)  // true
+console.log('mango'.length < 'avocado'.length)   // true
+console.log('milk'.length == 'meat'.length)      // true
+console.log('milk'.length != 'meat'.length)      // false
+console.log('tomato'.length == 'potato'.length)  // true
+console.log('python'.length > 'dragon'.length)   // false
+
+```
+
+### Output :
+
+![Output of above code ](./Images/3/6.png)
+
+Try to understand the above comparisons with some logic.Remembering without any logic might be difficult. JavaScript is somehow a wired kind of programming language.JavaScript code run and give you a result but unless you are good it may not be the desired result.
+
+As a rule of thumb, if a value si not true with **==** it will not be equal with **===**. Using **===** is safer than using **==**. The following [link](https://dorey.github.io/JavaScript-Equality-Table/) has an exhaustive list of comparisons of data types.
+
+
+### Logical Operators 
+
+> The following symbols are the common logical operators:**&&(ampersand), ||(pipe)and !(negation)**.The **&&** operator gets true only if thge two operands are true. The **||** operator gets true either of the one operand is true. The **!(negation)** operator negates **true** to **false** and **false** to **true**.
+
+### Example :
+
+``` JavaScript
+
+// && ampersand operator example
+
+const check = 4 > 3 && 10 > 5         // true && true -> true
+const check = 4 > 3 && 10 < 5         // true && false -> false
+const check = 4 < 3 && 10 < 5         // false && false -> false
+
+// || pipe or operator, example
+
+const check = 4 > 3 || 10 > 5         // true  || true -> true
+const check = 4 > 3 || 10 < 5         // true  || false -> true
+const check = 4 < 3 || 10 < 5         // false || false -> false
+
+//! Negation examples
+
+let check = 4 > 3                     // true
+let check = !(4 > 3)                  //  false
+let isLightOn = true
+let isLightOff = !isLightOn           // false
+let isMarried = !false                // true
+
+```
+
+### Increment Operator 
+
+> In JavaScript we use the increment operator to increase a value stored in a variable. The **increment** could be **pre** or **post** increment. Let us see each of them :
+
+1. Pre-increment:
+
+### Example :
+``` JavaScript
+
+let count = 0;
+
+console.log(++count);    // 1
+console.log(count);     // 1
+```
+
+### Output
+
+![Output](./Images/3/7.png)
+
+2. Post-increment
+
+### Example :
+
+``` JavaScript
+
+let count = 0;
+
+console.log(count++);  // 0
+console.log(count);   //  1
+
+```
+
+### Output:
+
+![Output](./Images/3/8.png)
+
+- We use most of the time **post-increment**. Atleast you should remember how to use **post-increment** operator.
+
+### Decrement Operator
+
+> In JavaScript, we use the decrement operator to decrease a value stored in a variable. The decrement could be **pre** or **post** **decrement**.Let use see each of them :
+
+1. Pre-decrement
+
+``` JavaScript
+
+let count = 0;
+
+console.log(--count)  // -1
+console.log(count)   // -1
+
+```
+
+### Output :
+
+![Output](./Images/3/9.png)
+
+2. Post-decrement
+
+``` JavaScript
+
+let count = 0;
+
+console.log(count--); // 0
+console.log(count);  // -1
+
+```
+
+### Output
+
+![Output](./Images/3/10.png)
+
+### Ternary Operator
+
+> Ternary Operator allows to write a condition. Another way to write conditions is using ***ternary operators.*** Look at the following examples :
+
+Example 1 :
+``` JavaScript
+
+let isRaining=true;
+
+isRaining?console.log("You need a rain coat..."):console.log("No need for a rain coat...")
+
+
+let is Raining=false;
+isRaining?console.log("You need a rain coat..."):console.log("No need for a rain coat...")
+```
+
+### Output :
+
+![Output](./Images/3/11.png)
+
+### Example 2:
+
+``` JavaScript
+
+let number = 5;
+
+number>0?console.log(`${number} is a positive number...`):console.log(`${number} is a negative number...`);
+
+number = -5;
+
+number>0?console.log(`${number} is a positive number...`):console.log(`${number } is a negative number...`);
+
+```
+
+### Output :
+
+![Output](./Images/3/12.png)
+
+### Operator Precedence :
+
+> I would like to recommend you to read about operator precedence from this [link](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_precedence)
+
+
+## Window Methods :
+
+### Window alert() method
+
+As you have seen at very beginning ***alert()*** method displays an alert box with a specified message an an ***OK*** button. It is a builtin method and it takes on argument.
+
+### Syntax : 
+
+``` JavaScript
+
+alert(message)
+
+```
+
+### Example :
+
+``` JavaScript
+
+alert("Welome to 30DaysOfJavaScript");
+
+```
+
+- Do not use too much ***alert()*** because it is destructing and annoying, use it to test.
+
+### Window prompt() method
+
+> The ***window prompt*** method displays a prompt box with an input on your browser to take input values and input data can be stored in a variable. The prompt() method takes two arguments. The second argument is optional.
+
+### Syntax :
+
+``` JavaScript
+
+prompt('required text','optional text');
+
+```
+
+### Example :
+
+``` javaScript
+
+let number = prompt("Enter a number","number goes here");
+
+console.log(number);
+
+```
+
+### Window confirm() method
+
+> The ***confirm()*** method displays a dialog box with a specified message, along with an ****OK and a  Cancel button.*** A ***confirm*** box is often used to ask permission from a user to execute something. ***Window confirm()*** takes a string as an argument.Clicking the ***OK*** yields true value, whereas clicking the ***Cancel button*** yields false value.
+
+### Example :
+
+``` JavaScript
+
+const agree = confirm('Are you sure you like to delete?');
+
+console.log(agree); // Results will be true or false based on what you click on the dialog bo.
+
+```
+
+- These are not all the ***window methods*** we will have a seperate section to go deep into ***window methods***.
+
+
+## Date Object
+
+> Time is an important thing. We like to know the time a certain event or activity. In JavaScript current time and date is created using ***JavaScript Date Object.*** The Object we create using Date object provides many methods to work with date and time.The methods we use to get date and time information from a date object values are started with a word ***get*** because it provide the information. ***getFullYear(),getMonth(), getDate(), getDay(), getHours(), getMinutes(), getSeconds(), getMilliseconds(), getTime(), getDay().***
+
+![Date Object Methods](./Images/3/IMG_9063.jpg)
+
+## Creating a time object :
+
+> Once we create time object. The time object will provide information about time. Let us create a timw object.
+
+### Example :
+``` JavaScript
+
+const now = new Date();
+
+console.log(now);
+
+```
+
+### Output :
+
+![Output](./Images/3/13.png)
+
+- We have created a time object and we can access any date time information from the object using the get methods we have mentioned on the table :
+
+## Getting full year
+
+> Let's extract or get the full year from a time object.
+
+### Example :
+
+``` JavaScript
+
+const now = new Date();
+
+console.log(now.getFullYear());
+
+```
+
+### Output :
+
+![Output](./Images/3/14.png)
+
+## Getting month
+
+> Let's extract or get the month from a time object.
+
+### Example :
+
+``` JavaScript
+
+const now = new Date();
+
+console.log(now.getMonth()); // month starts from 0 (0-11)
+
+```
+
+### Output :
+
+![Output](./Images/3/15.png)
+
+## Getting Date
+
+> Lets's extract or get the date of the month from a time object.
+
+### Example :
+
+``` JavaScript
+
+const now = new Date();
+
+console.log(now.getDate());
+
+```
+
+### Output :
+
+![Output](./Images/3/16.png)
+
+## Getting day
+
+> Let's extract or get the day of the week from a time object.
+
+### Example :
+
+``` JavaScript
+
+const now = new Date();
+
+console.log(now.getDay());
+
+// Sunday is 0, Monday is 1 and Saturday is 6.
+
+// Geeting the weekday as a number (0-6).
+
+```
+
+### Output :
+
+![Output](./Images/3/17.png)
+
+## Getting hours
+
+> Let's extract or get the hours from a time object.
+
+### Example :
+
+``` javaScript
+
+const now = new Date();
+
+console.log(now.getHours());
+
+```
+
+### Output :
+
+![Output](./Images/3/18.png)
+
+## Getting minutes
+
+> Let's extract or get the minutes from a time object.
+
+### Example :
+
+``` JavaScript
+
+const now = new Date();
+
+console.log(now.getMinutes());
+
+```
+
+### Output :
+
+![Output](./Images/3/19.png)
+
+## Getting seconds
+
+> Let's extract or get the seconds from a time object.
+
+### Example :
+
+``` JavaScript
+
+const now = new Date();
+
+console.log(now.getSeconds());
+
+```
+
+### Output :
+
+![Output](./Images/3/20.png)
+
+## Getting time
+
+> This method gives time in milliseconds starting from ***January 1, 1970.*** It is also known as ***Unix time.*** We an get the ***unix time*** in two ways :
+
+1. **Using getTime()**
+
+### Example :
+
+``` JavaScript
+
+const now = new Date();
+
+console.log(now.getTime()); // 1765409003956, this is the number of seconds passed from January 1,1970 to December 11, 2025
+
+```
+
+### Output :
+
+![Output](./Images/3/21.png)
+
+
+2. **Using Date.now()**
+
+### Example :
+
+``` JavaScript 
+
+const allSeconds = Date.now();
+
+console.log(allSeconds);
+
+const timeInSeconds = new Date().getTime();
+
+console.log(allSeconds == timeInSeconds);
+
+```
+
+### Output :
+
+![Output](./Images/3/22.png)
+
+- Let us format these values to a human readable time format.
+
+### Example :
+
+``` JavaScript
+
+const now = new Date();
+
+const year = now.getFullYear();  // return year
+
+const month = now.getMonth();   // return month(0-11)
+
+const date = now.getdate();    // return date(1-31)
+
+const hours = now.getHours(); // return hours(0-23)
+
+const minutes = now.getMinutes(); // return minutes(0-59)
+
+console.log(`${date}/${month}/${year}  ${hours}:${minutes}`);
+
+```
+
+### Output :
+
+![Output](./Images/3/23.png)
+
 
 
 
