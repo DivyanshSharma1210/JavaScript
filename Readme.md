@@ -1584,6 +1584,395 @@ console.log(`${date}/${month}/${year}  ${hours}:${minutes}`);
 
 ![Output](./Images/3/23.png)
 
+# Day-4
 
+## Conditionals
 
+> Conditional statements are used for make decisions based on different conditions.By default, statements in JavaScript script executed sequentially from top to bottom. If the processing logic require so, the sequential flow of execution an be altered in two ways :
 
+- ***Conditional Execution*** : A block of one or more statements will be executed if a certain expression is true.
+
+- ***Repetitive Execution*** : A block of one or more statements will be repetitively executed if a certain expression is true. In this section, we will cover **if, else, else if statements.** The comparison and logical operators we learned in the previous sections will be useful in here.
+
+Conditions can be implementing using the following ways :
+
+- if
+- if else
+- if else if else
+- switch 
+- ternary operator
+
+## If
+
+> In JavaScript and other programming languages the ***keyword*** **if** is used to check if a condition is true and to execute the block code. To create an if condition, we need **if** keyword, condition inside a paranthesis and block of code inside a curly bracket({}).
+
+### Syntax :
+
+``` JavaScript
+
+// Syntax
+
+if (condition)
+{
+  // this part of code runs for truthy condition...
+
+}
+
+```
+
+### Example :
+
+``` JavaScript
+
+let num = 3;
+
+if(num>0)
+{
+  console.log(`${num} is a positive number`);
+
+}
+
+```
+
+### Output :
+
+![Output](./Images/4/1.png)
+
+> As, you can see in the condition example above, 3 is greater than 0, so it is a positive number. The condition was ***true*** and the block of code was executed. However, if the condition is ***false***, we won't see any results. 
+
+### Example 2 :
+
+``` JavaScript
+
+let isRaining = true;
+
+if(isRaining)
+{
+  console.log("Remember to take your rain coat...");
+
+}
+```
+### Output :
+
+![Output](./Images/4/2.png)
+
+> The same goes here for the second condition, if isRaining is ***false*** the **if** block will not be executed and we do not see any output.In order to see the result of a ***falsy*** condition, we should have another block, which is going to be ***else***.
+
+# If Else 
+
+> If the **if** condition is ***true*** the first block which is **if** block will be executed, if the **if** condition is not true or we can if its ***false*** then the **else** condition will be executed.
+
+### Syntax :
+
+``` JavaScript
+
+// Syntax
+
+if(condition)
+{
+  // this part of the code runs for truthy condition
+}
+else
+{
+  // this part of the code runs for falsy condition
+}
+```
+### Example 1 :
+
+``` JavaScript
+
+let num = 3;
+
+if(num>0)
+{
+  console.log(`${num} is a positive number`);
+}
+else
+{
+  console.log(`${num} is a negative number`);
+}
+
+num = -3;
+
+if(num>0)
+{
+  console.log(`${num} is a positive number`);
+}
+else
+{
+  console.log(`${num} is a negative number`);
+}
+
+```
+
+### Output :
+
+![Output](./Images/4/3.png)
+
+### Example 2 :
+
+``` JavaScript
+
+let isRaining = true;
+
+if(isRaining)
+{
+  console.log(`You need a rain coat.`);
+}
+else
+{
+  console.log(`No need for a rain coat.`);
+}
+
+isRaining = false;
+
+if(isRaining)
+{
+  console.log(`You need a rain coat.`);
+}
+else
+{
+  console.log(`No need for a rain coat.`);
+}
+
+```
+
+### Output :
+
+![Output](./Images/4/4.png)
+
+> The last condition is false, therefore the else block was executed. What if we have more than two conditions? In that case, we would use **else if** conditions.
+
+# If->Else if-> Else
+
+> On our daily life, we make decisions on daily basis. We make decisions not by checking one or two conditions instead we make decisions based on multiple conditions. As similar to our daily life, programming is also full of conditions. We use **else if** when we have multiple conditions.
+
+## Syntax :
+
+``` JavaScript 
+
+// Syntax 
+
+if(condition)
+{
+   // if-block code
+}
+else if(condition)
+{
+   // else-if block code 
+}
+else
+{
+   // else-block code
+}
+
+```
+
+### Example 1 :
+
+``` JavaScript 
+
+let a = 0;
+
+if(a > 0)
+{
+  console.log(`${a} is a positive number`);
+}
+else if(a == 0)
+{
+  console.log(`${a} is zero`);
+}
+else if(a< 0)
+{
+  console.log(`${a} is a negative number`);
+}
+else
+{
+  console.log(`${a} is not a number`);
+}
+
+```
+
+### Output :
+
+![Output](./Images/4/5.png)
+
+![Output](./Images/4/6.png)
+
+![Output](./Images/4/7.png)
+
+![Output](./Images/4/8.png)
+
+### Example 2 :
+
+``` JavaScript
+
+let weather = 'sunny';
+
+if(weather == 'sunny')
+{
+  console.log(`Go out freely`);
+}
+else if(weather == 'cloudy')
+{
+  console.log(`It might be colde you need a jacket`);
+}
+else if(weather == 'rainy')
+{
+  console.log(`You need a rain coat`);
+}
+else
+{
+  console.log(`No need for a rain coat`);
+}
+```
+
+### Output :
+
+![Output](./Images/4/9.png)
+
+![Output](./Images/4/10.png)
+
+![Output](./Images/4/11.png)
+
+![Output](./Images/4/12.png)
+
+# Switch 
+
+> **Switch** is an alternative for **if else if else else**. The **Swith** statement starts with a ***switch*** keyword followed by a paranthesis and code block.Inside the code block we will have different cases.Case block runs if the value in the **switch. statement parenthesis matches with the case value.** The **break** statement is to terminate execution so the code execution does not go down after the condition is satisfied.The **default** block runs if all the cases don't satisfy the condition.
+
+### Syntax :
+
+``` JavaScript 
+
+switch(caseValue)
+{
+  case 1:
+    // code
+    break;
+  case 2 :
+    // code
+    break;
+  case 3:
+    // code
+    break;
+  default:
+    //code
+}
+```
+### Example 1:
+
+``` JavaScript
+
+let weather = 'cloudy';
+
+switch(weather)
+{
+  case 'rainy':
+    console.log("You need a rain coat.");
+    break;
+  case 'cloudy':
+    console.log("It might be cold, you need a jacket.");
+    break;
+  case 'sunny':
+    console.log("Go out freely");
+    break;
+  default:
+    console.log("No need for rain coat");
+}
+
+```
+### Output :
+
+![Output](./Images/4/13.png)
+
+### Example 2 :
+
+``` JavaScript
+
+let dayUserInput= prompt("What day is today ?");
+let day=dayUserInput.toLowerCase();
+
+switch(day)
+{
+  case 'monday':
+    console.log("Today is Monday");
+    break;
+  case 'tuesday':
+    console.log("Today is Tuesday");
+    break;
+  case 'wednesday':
+    console.log("Today is Wednesday");
+    break;
+  case 'thursday':
+    console.log("Today is Thursday");
+    break;
+  case 'friday':
+    console.log("Today is Friday");
+    break;
+  case 'saturday':
+    console.log("Today is Saturday");
+    break;
+  case 'sunday':
+    console.log("Today is Sunday");
+    break;
+  default:
+    console.log("It is not a week day");
+}
+
+```
+
+### Output
+
+![Output](./Images/4/14.png)
+
+- Examples to use conditions in the cases:
+
+### Example :
+
+``` JavaScript
+
+let num = prompt("Enter a Number");
+
+switch(num)
+{
+  case num > 0:
+    console.log("Given Number is Positive");
+    break;
+  case num == 0:
+    console.log("Given Number is Zero");
+    break;
+  case num < 0:
+    console.log("Given Number is Negative");
+    break;
+  default:
+    console.log("Entered Value was not a Number");
+}
+
+```
+
+## Ternary Operators
+
+- Another way to write conditionals is using **ternary operators.** We have covered this in other sections, but we should also mention it here.
+
+### Syntax :
+
+``` JavaScript
+
+condition ? expressionIfTrue : expressionIfFalse;
+
+```
+
+### Example :
+
+``` JavaScript
+
+let isRaining = true;
+
+isRaining?console.log("You need a rain coat"):console.log("No need for a rain coat");
+
+```
+
+### Output :
+
+![Output](./Images/4/15.png)
