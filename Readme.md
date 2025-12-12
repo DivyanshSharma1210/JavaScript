@@ -1976,3 +1976,954 @@ isRaining?console.log("You need a rain coat"):console.log("No need for a rain co
 ### Output :
 
 ![Output](./Images/4/15.png)
+
+# Day-5
+
+## Arrays
+
+In contrast to variables, an array can store ***multiple values***.Each value in an array has an **Index**, and each **index** has a **reference** in a memory address.Each value an be accessed by using their ***indexes***. The **index** of an array starts from zero, and the **index** of the last element is less by one from the length of the array.
+
+An **array** is a collection of different data types which are ordered and changeable(modifiable). An **array** allows storing duplicate elements and different data types. An array can be empty,  or it may have different data type values.
+
+## How to create an empty array 
+
+In JavaScript, we can create array in different ways.Let us see different ways to create an array.It is very common to use **const** instead of **let** to declare an array variable. If you are using **const** it means you do not use that variable name again.
+
+- **Using Array constructor**
+
+### Syntax :
+
+``` JavaScript
+
+// syntax 
+
+const arr = Array();
+
+           // or
+
+let arr1 = new Array();
+
+console.log(arr);
+
+console.log(arr1);
+
+```
+
+### Example :
+
+``` JavaScript
+
+const arr = Array();
+
+let arr1 = new Array();
+
+console.log(arr);
+
+console.log(arr1);
+
+```
+
+### Output :
+
+![Output](./Images/5/1.png)
+
+- **Using Square Brackets**
+
+### Syntax :
+
+``` JavaScript
+
+// This is the most recommended way to create an empty list 
+
+const arr = [];
+
+console.log(arr);
+
+```
+
+### Example :
+
+``` JavaScript
+
+let arr = [];
+
+console.log(arr);
+
+```
+
+### Output :
+
+![Output](./Images/5/2.png)
+
+## How to create an array with values 
+
+> Array with initial values. We use ***length*** property to find the length of an array.
+
+### Example :
+
+``` JavaScript
+
+const numbers = [0, 3.14, 9.81, 37, 98.6, 100]; // array of numbers
+
+const fruits = ['banana', 'orange', 'mango', 'lemon']; // array of strings
+
+const vegetables = ['Tomato', 'Potato', 'Cabbage', 'Onion', 'Carrot']; // array of strings
+
+const animalProducts = ['milk', 'meat', 'butter', 'yogurt']; // array of strings
+
+const webTechs = ['HTML', 'CSS', 'JS', 'React', 'Redux', 'NodeJS', 'MongoDB']; // array of strings
+
+const countries = ['Finland', 'Denmark', 'Sweden', 'Norway', 'Iceland']; //array of strings
+
+
+// Print the array and its length :
+
+console.log(`Numbers : ${numbers}`);
+console.log(`Number of numbers : ${numbers.length}`);
+
+console.log(`Fruits : ${fruits}`);
+console.log(`Number of fruits : ${fruits.length}`);
+
+console.log(`Vegetables : ${vegatables}`);
+console.log(`Number of Vegeatbles : ${vegetables.length}`);
+
+console.log(`Animal Products : ${animalProducts}`);
+console.log(`Number of Animal Products :${animalProducts.length}`);
+
+console.log(`Web Techs : ${webTechs}`);
+console.log(`Number of webTechs : ${webTechs.length}`);
+
+console.log(`Countries : ${countries}`);
+console.log(`Number of Countires :${countries.length}`);
+
+```
+
+### Output :
+
+![Output](./Images/5/3.png)
+
+- **Array** can have items of different data types :
+
+### Example :
+
+``` JavaScript
+
+const arrr=[
+
+  'Dibyansh Sharma',
+  22,
+  true,
+  {country:'Finland',city:'Helsinki'},
+  {skills:['Html', 'CSS', 'JavaScript', 'React', 'Python']}
+] // arrr containing different data types.
+
+console.log(arrr);
+
+```
+
+### Output :
+
+![Output](./Images/5/4.png)
+
+## Creating an array using split
+
+> As we have seen in the earlier section, we can split a string at different positions, and we can change to an array. Let us see the example below:
+
+### Example :
+
+``` JavaScript
+
+let js = 'JavaScript';
+const charsInJavaScript = js.split('');
+console.log(charsInJavaScript);
+
+let companiesString = 'Facebook, Google, Microsoft, Apple, IBM, Oracle, Amazon';
+const companies = companiesString.split(',');
+console.log(companies);
+
+let txt = 'I love coding and building stuff. I am Tech Enthusiast';
+const words = txt.split(' ');
+console.log(words);
+
+```
+
+### Output :
+
+![Output](./Images/5/5.png)
+
+## Accessing array items using index 
+
+We access each element in an array using their index. An array index starts from 0. The picture below clearly shows the index of each element in the array.
+
+![Accessing array items using index](./Images/5/Screenshot%202025-12-12%20at%2004.12.45.png)
+
+### Example 1 :
+
+``` JavaScript 
+
+const fruits = ['banana', 'orange', 'mango', 'lemon'];
+
+let firstFruit = fruits[0];
+
+console.log(firstFruit);
+
+let secondFruit = fruits[1];
+
+console.log(secondFruit);
+
+let lastFruit = fruits[3];
+
+console.log(lastFruit);
+
+let lastIndex=fruits.length-1;
+
+console.log(fruits[lastIndex]);
+
+```
+
+### Output :
+
+![Output](./Images/5/6.png)
+
+### Example 2 :
+
+``` JavaScript 
+
+const numbers = [0, 3.14, 9.81, 37, 98.6, 100]  // Set of numbers
+
+console.log(numbers.length);
+console.log(numbers);
+console.log(numbers[0]);
+console.log(numbers[5]);
+
+let lastIndex = numbers.length-1;
+
+console.log(numbers[lastIndex]);
+
+```
+
+### Output :
+
+![Output](./Images/5/7.png)
+
+### Example 3 :
+
+``` JavaScript
+
+const webTechs = ['HTML', 'CSS', 'JavaScript', 'React', 'Redux', 'NodeJS', 'MongoDB']; // List of web Technologies
+
+console.log(webTechs);
+console.log(webTechs.length);
+console.log(webTechs[0]);
+console.log(webTechs[6]);
+
+let lastIndex = webTechs.length-1;
+
+console.log(webTechs[lastIndex]);
+
+```
+
+### Output :
+
+![Output](./Images/5/8.png)
+
+### Example 4 :
+
+``` JavaScript
+
+const countries = ['Albania', 'Bolivia', 'Canada', 'Denmark', 'Ethiopia', 'Finland', 'Germany', 'Hungary', 'Ireland', 'Japan', 'Kenya']; // List of countries
+
+console.log(countries);
+console.log(countries.length);
+console.log(countries[0]);
+console.log(countries[7]);
+
+let lastIndex = countries.length-1;
+
+console.log(countries[lastIndex]);
+
+```
+
+### Output :
+
+![Output](./Images/5/9.png)
+
+### Example 5 :
+
+``` JavaScript
+
+
+const shoppingCart = ['Milk', 'Mango', 'Tomato', 'Potato', 'Avocado', 'Meat', 'Eggs', 'Sugar']; // List of food products
+
+console.log(shoppingCart);
+console.log(shoppingCart.length);
+console.log(shoppingCart[1]);
+console.log(shoppingCart[6]);
+
+let lastIndex = shoppingCart.length-1;
+
+console.log(shoppingCart[lastIndex]);
+
+```
+
+### Output :
+
+![Output](./Images/5/10.png)
+
+## Modifying array element
+
+> An array is mutable(modifiable). One an array is created, we can modify the content of the array elements.
+
+### Example :
+
+``` JavaScript
+
+const numbers = [1, 2, 3, 4, 5];
+
+numbers[0] = 10;  // changing 1 at index 0 to 10
+numbers[1] = 20; // changing 2 at index 1 to 20
+
+console.log(numbers);  
+
+const countries = ['Albania', 'Bolivia', 'Canada', 'Denmark', 'Ethiopia', 'Finland', 'Germany', 'Hungary', 'Ireland', 'Japan', 'Kenya'];
+
+countries[0] = 'Afghanistan';  // Replacing Albania by Afghanistan
+
+let lastIndex = countries.length-1;
+
+countries[lastIndex] = 'Korea'; // Replacing Kenya by Korea
+
+console.log(countries)
+
+```
+
+### Output :
+
+![Output](./Images/5/11.png)
+
+
+## Methods to manipulate array
+
+There are different methods to manipulate an array. These are some of the available methods to deal with arrays : ***Array, length, concat, indexOf, slice, splie, join, fill, push, pop, shift, unshift, toString, includes, lastIndexOf, isArray.
+
+## Array Constructor 
+
+- **Array** : To create an array.
+
+### Example :
+
+``` JavaScript
+
+const arr = Array() // creates an empty array
+
+console.log(arr);
+
+const eightEmptyValues = Array(8); // It creates an array of length 8 with empty values.
+
+console.log(eightEmptyValues);
+
+```
+### Output :
+
+![Output](./Images/5/12.png)
+
+## Creating static values with fill
+
+> **fill** : Fill all the array elements with a static value.
+
+### Example :
+
+``` JavaScript
+
+const arr = Array(); // creates an empty array
+
+console.log(arr);
+
+const eightXvalues = Array(8).fill('X'); // it creates an array of length 8 and its elements are filled with value 'X'
+
+console.log(eightXvalues);
+
+const eight0values = Array(8).fill(0); // it creates an array of length 8 and its elements are filled with value 0
+
+console.log(eight0values);
+
+const four4values = Array(4).fill(4); // it creates an array of length 4 and its elements are filled with value 4
+
+console.log(four4values);
+
+```
+### Output :
+
+![Output](./Images/5/13.png)
+
+## Concatenating array using concat
+
+> **concat :** To concatenate two arrays.
+
+### Example 1 :
+
+``` JavaScript
+
+let arr1 = [1, 2, 3];
+
+let arr2 = [4, 5, 6];
+
+const arr3 = arr1.concat(arr2);
+
+console.log(arr3);
+
+```
+
+### Output :
+
+![Output](./Images/5/14.png)
+
+### Example 2 :
+
+``` JavaScript
+
+let fruits = ['Apple', 'Banana', 'Mango', 'Cherry', 'Kiwi'];
+
+let vegetables = ['Tomato', 'Potato', 'Cauliflower', 'Cabbage', 'Spinach'];
+
+const fruitsAndVegetables = fruits.concat(vegetables);
+
+console.log(fruitsAndVegetables);
+
+```
+
+### Output :
+
+![Output](./Images/5/15.png)
+
+## Getting array length 
+
+> **Length :** To know the size of the array.
+
+### Example :
+
+``` JavaScript
+
+let numbers =[1, 2, 3, 4, 5];
+
+console.log(numbers.length);
+
+```
+
+### Output :
+
+![Output](./Images/5/16.png)
+
+## Getting index of an element in an array 
+
+> **indexOf** : To check if an item exists in an array. If it exists it returns the **index** else it returns **-1**.
+
+### Example :
+
+``` JavaScript
+
+const numbers = [1, 2, 3, 4, 5];
+
+console.log(numbers.indexOf(5));
+
+console.log(numbers.indexOf(0));
+
+console.log(numbers.indexOf(1));
+
+console.log(numbers.indexOf(6));
+
+```
+
+### Output :
+
+![Output](./Images/5/17.png)
+
+## Check an element if it exists in an array or not .
+
+- Check items in a list
+
+### Example :
+
+``` JavaScript
+
+// let us check if a banana exist in the array or not 
+
+let fruits = ['banana', 'orange', 'mango'];
+
+let index = fruits.indexOf('banana');
+
+if(index === -1)
+{
+  console.log(`This fruit does not exists in the array`)
+}
+else
+{
+  console.log(`This fruit does exist in the array`);
+}
+
+// We can also use ternary here
+
+index === -1 ? console.log(`This fruit does not exists in the array`):console.log(`This fruit does exist in the array`);
+
+// Now, let us check if an avocado exist in the array
+
+let indexOfAvocado = fruits.indexOf('avocado'); // -1, if the element not found it returns -1.
+
+if(indexOfAvocado === -1)
+{
+  console.log(`This fruit does not exist in the array`);
+}
+else
+{
+  console.log(`This fruit does exist iin the array`);
+}
+
+```
+### Output :
+
+![Output](./Images/5/18.png)
+
+## Getting last index of an element in an array
+
+> ** lastIndexOf() :** It gives the position of the last element in the array. If it exist, it returns the **index** else it returns **-1**.
+
+### Example :
+
+``` JavaScript 
+
+const numbers = [1, 2, 3, 4, 5, 3, 1, 2];
+
+console.log(numbers.lastIndexOf(2));
+
+console.log(numbers.lastIndexOf(0));
+
+console.log(numbers.lastIndexOf(1));
+
+console.log(numbers.lastIndexOf(4));
+
+console.log(numbers.lastIndexOf(6));
+
+```
+
+### Output :
+
+![Output](./Images/5/19.png)
+
+- **includes() :** To check if an item exist in an array. If it exist it returns the **true** else it returns **false**.
+
+### Example :
+
+``` JavaScript
+
+const numbers = [1, 2, 3, 4, 5];
+
+console.log(numbers.includes(2));
+
+console.log(numbers.includes(6));
+
+console.log(numbers.includes(5));
+
+console.log(numbers.includes(10));
+
+const webTechs = ['HTML', 'CSS', 'JavaScript', 'React', 'Redux', 'NodeJS', 'MongoDB']; // list of web Technologies
+
+console.log(webTechs.includes('NodeJS'));
+
+console.log(webTechs.includes('C'));
+
+```
+
+### Output :
+
+
+![Output](./Images/5/20.png)
+
+## Checking array 
+
+> **Array.isArray :** To check if the data type is an  array.
+
+### Example :
+
+``` JavaScript
+
+const numbers = [11, 22, 33, 44, 55];
+
+console.log(Array.isArray(numbers));  
+
+const number = 100;
+
+console.log(Array.isArray(number));
+
+```
+### Output :
+
+![Output](./Images/5/21.png)
+
+## Converting Array to String
+
+> **toString : ** Converts an array to String
+
+### Example :
+
+``` JavaScript
+
+
+const numbers = [11, 22, 33, 44, 55];
+
+console.log(numbers.toString());
+
+const names = ['Dibyansh', 'Ananyaa', 'shreya'];
+
+console.log(names.toString());
+
+```
+
+### Output :
+
+![Output](./Images/5/22.png)
+
+## Joining array elements 
+
+**join()** : It is used to join the elements of the array, the argument we passed in the **join** method will be **joined** in the array and return as a **string**. By default, it **joins** with a **comma**, but we an pass different string parameter which can be joined between the items.
+
+
+### Example :
+
+``` JavaScript
+
+const numbers = [1, 2, 3, 4, 5];
+
+console.log(numbers.join());
+
+const names = ['Dibyansh', 'Ananyaa', 'Shreya'];
+
+console.log(names.join());
+
+console.log(names.join(''));
+
+console.log(names.join(' '));
+
+console.log(names.join(', '));
+
+console.log(names.join(' # '));
+
+const webTechs = ['HTML', 'CSS', 'JavaScript', 'React', 'Redux', 'NodeJS', 'MongoDB']; // list of web Technologies
+
+console.log(webTechs.join());
+
+console.log(webTechs.join(' # '));
+
+```
+
+### Output :
+
+![Output](./Images/5/23.png)
+
+## Slice array elements
+
+**Slice** : To cut out a multiple items in a range. It takes two parameters: **starting and ending position.** It doesn't include the ending position.
+
+### Example :
+
+``` JavaScript
+
+const numbers = [1, 2, 3, 4, 5];
+
+console.log(numbers.slice()); // It copies all items
+
+console.log(numbers.slice(0)); // It copies all items
+
+console.log(numbers.slice(0,numbers.length)); // It copies all items
+
+console.log(numbers.slice(1,4)); // [2,3,4] -> It doesn't include the ending position
+
+```
+
+### Output :
+
+![Output](./Images/5/24.png)
+
+## Splice method in array
+
+**Splice() :** It takes three parameters: **Starting position, number of items to be removed and number of items to be added.**
+
+### Example 1 :
+
+``` JavaScript
+
+const numbers = [1, 2, 3, 4, 5];
+
+numbers.splice();
+
+console.log(numbers);
+
+```
+
+### Output :
+
+![Output](./Images/5/25.png)
+
+### Example 2 :
+
+``` JavaScript
+
+const numbers = [1, 2, 3, 4, 5];
+
+numbers.splice(0,1);
+
+console.log(numbers);
+
+```
+
+### Output :
+
+![Output](./Images/5/26.png)
+
+### Examples :
+
+``` JavaScript
+
+const numbers = [1, 2, 3, 4, 5];
+
+numbers.splice(3, 3, 7, 8 , 9);
+
+console.log(numbers);
+
+```
+
+### Output :
+
+![Output](./Images/5/27.png)
+
+## Adding items to an array using push 
+
+- **Push() :** Adding item in the end. To add an item to the **end** of an existing array we use the **push()** method.
+
+
+### Syntax :
+
+``` JavaScript
+
+// Syntax 
+
+const arr = ['item1', 'item2', 'item3'];
+
+arr.push('new item');
+
+console.log(arr); // ['item1', 'item2', 'item3', 'new item']
+
+```
+### Example 1 :
+
+``` JavaScript
+
+const numbers = [1, 2, 3, 4, 5];
+
+numbers.push(6);
+
+console.log(numbers);
+
+```
+
+### Output :
+
+![Output](./Images/5/28.png)
+
+### Example 2 :
+
+``` JavaScript
+
+let fruits = ['banana', 'orange', 'mango'];
+
+fruits.push('Litchi');
+
+console.log(fruits);
+
+fruits.push('Cherry');
+
+console.log(fruits);
+
+```
+
+### Output :
+
+![Output](./Images/5/29.png)
+
+
+## Removing the end element using pop
+
+- **pop() :** Removing an item in the end.
+
+### Example :
+
+``` JavaScript
+
+const numbers = [11, 22, 33, 44, 55];
+
+console.log(numbers);
+
+numbers.pop();
+
+console.log(numbers);
+
+let poppedElement = numbers.pop();
+
+console.log(poppedElement);
+
+console.log(numbers);
+
+```
+
+### Output :
+
+![Output](./Images/5/30.png)
+
+## Removing an element from the beginning
+
+- **shift() :** Removing one array element in the beginning of the array.
+
+### Example :
+
+``` JavaScript
+
+const numbers = [1, 2, 3, 4, 5];
+
+console.log(numbers);
+
+numbers.shift();
+
+console.log(numbers);
+
+let shiftedElement = numbers.shift();
+
+console.log(shiftedElement);
+
+console.log(numbers);
+
+```
+
+### Output :
+
+![Output](./Images/5/31.png)
+
+## Adding an element in the beginning of the array 
+
+- **unshift() :** Adding an element in the beginning of the array.
+
+### Example :
+
+``` JavaScript
+
+let numbers =[11, 22, 33, 44, 55];
+
+console.log(numbers);
+
+numbers.unshift(99);
+
+console.log(numbers);
+
+```
+
+### Output :
+
+![Output](./Images/5/32.png)
+
+## Reversing Array Order 
+
+- **reverse() :** It reverse the order of an array.
+
+### Example :
+
+``` JavaScript
+
+const numbers = [1, 2, 3, 4 ,5];
+
+console.log(numbers);
+
+numbers.reverse();
+
+console.log(numbers);
+
+numbers.reverse();
+
+console.log(numbers);
+
+```
+
+### Output :
+
+![Output](./Images/5/33.png)
+
+## Sorting Elements in array 
+
+- **sort() :** Arrange array elements in **ascending order**. Sort takes a call back function, we will see how we use sort with a call back function in the coming sections.
+
+### Example :
+
+``` JavaScript
+
+const webTechs = ['HTML', 'CSS', 'JavaScript', 'NodeJS', 'React', 'Redux', 'MongoDB', 'Tailwind CSS', 'TypeScript'];
+
+console.log(webTechs);
+
+webTechs.sort();
+
+console.log(webTechs);
+
+// After sorting you can reverse it 
+
+webTechs.reverse();
+
+console.log(webTechs);
+
+```
+
+### Output :
+
+![Output](./Images/5/34.png)
+
+## Array of arrays 
+
+- **Array** can store different data types including an array itself. Let us create an **array of arrays.**
+
+### Example :
+
+``` JavaScript
+
+const arr1 = [1, 2, 3, 4, 5 ];
+
+const arr2 = [11, 22, 33, 44, 55];
+
+const arrayOfArray = [[1, 2, 3, 4, 5],[11, 22, 33, 44, 55]];
+
+console.log(arrayOfArray[0]);
+
+console.log(arrayOfArray[1]);
+
+console.log(arrayOfArray[1][1]);
+
+console.log(arrayOfArray);
+
+const frontEnd = ['HTML', 'CSS', 'Tailwind CSS', 'React', 'Redux', 'NextJS'];
+
+const backEnd = ['JavaScript', 'TypeScript', 'NodeJS', 'Express', 'MongoDb', 'JWT'];
+
+const fullStack =[frontEnd,backEnd];
+
+console.log(fullStack);
+
+console.log(fullStack.length);
+
+console.log(fullStack[0]);
+
+console.log(fullStack[1]);
+
+console.log(fullStack[0][1]);
+
+```
+
+### Output :
+
+![Output](./Images/5/35.png)
+
+
