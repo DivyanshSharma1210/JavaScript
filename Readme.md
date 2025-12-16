@@ -2925,5 +2925,3 @@ console.log(fullStack[0][1]);
 ### Output :
 
 ![Output](./Images/5/35.png)
-
-
