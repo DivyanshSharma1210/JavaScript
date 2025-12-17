@@ -479,4 +479,308 @@ const sumAndDifference = (x, y) => ({sum : x + y , difference : x - y});
 console.log(sumAndDifference(45,45));
 
 
+// Anonymous function
+
+let x = function(){
+
+    console.log("Hii...");
+}
+
+x();
+
+// Immediately invoked funtion expression -> (IIFE)
+
+(function exec()
+{
+   console.log("named");
+})();
+
+
+(function (x)
+{
+    console.log(x*x);
+})(5);
+
+// IIFE's are also known as Self-invoking funtions.
+
+// Objects
+
+let obj = {
+ 
+    id : 101,
+    name : "Alex",
+    salary : 10000
+};
+
+console.log(obj);
+
+let emp =new Object();
+
+console.log(emp);
+
+emp.id = 102;
+
+emp.name = "Sam";
+
+emp.salary = 20000
+
+console.log(emp);
+
+// We can also create objects using funtion construtors...
+
+function Emp(id, name, salary)
+{
+    this.id = id;
+    this.name = name;
+    this.salary = salary;
+}
+
+const e = new Emp(103, "Ammy", 30000);
+
+console.log(e);
+
+// Accessing Object Values
+
+console.log(e.id);
+
+console.log(e['name']);
+
+console.log(e['salary']);
+
+console.log(emp);
+
+emp.city="Helsinki";
+
+console.log(emp);
+
+emp['country']="Finland";
+
+console.log(emp);
+
+// Updating eisting key-value pair
+
+emp.salary=25000;
+
+console.log(emp);
+
+// Deleting a Key-value pair
+
+delete emp.country;
+
+console.log(emp);
+
+// Object Methods
+
+let person = {
+
+    firstName : "Dibyansh",
+    lastName : "Sharma",
+    age : 22,
+    role : "Full Stak Developer"
+};
+
+console.log(person);
+
+console.log(Object.keys(person));
+
+console.log(Object.values(person));
+
+console.log(Object.entries(person));
+
+Object.freeze(person);
+
+person.age = 23;
+
+person.city = "Edinburgh";
+
+console.log(person);
+
+Object.seal(person);
+
+person.firstName="Divyansh";
+
+person.country = "United Kingdom";
+
+console.log(person);
+
+let p = Object.assign({},person);
+
+console.log(p);
+
+// Higher Order Functions Callback, Returning functions, Setting time (setinterval,setTimeout)
+
+const powerTwo = (n)=>{
+
+    return n ** 2;
+}
+
+function powerCube(powerTwo,n)
+{
+    return powerTwo(n) * n ;
+}
+
+console.log(powerCube(powerTwo,3));
+
+function sayHello()
+{
+    return ()=>{
+
+        console.log("Hello Dibyansh Sharma...");
+    }
+}
+
+let guessValue = sayHello();
+
+console.log(guessValue);
+
+guessValue();
+
+const higherOrder = n => {
+
+    const oneFun = m => {
+
+        const twoFun = o => {
+             
+            return m + n + o ;
+        }
+
+        return twoFun;
+    }
+
+    return oneFun;
+}
+
+console.log(higherOrder(2)(3)(4));
+
+                                        // setInterval()
+
+function Helloo ()
+{
+    console.log("Set Interval ...");
+}
+
+//  setInterval(Helloo,1000);
+
+                                        // setTimeout
+
+// setTimeout(Helloo,2000);
+
+
+                        // For each, map, filter, reduce, every, find, sort
+
+const arrr = [2, 3 , 4];
+
+ arrr.forEach(function(element,index,arr)
+{
+    console.log(index, element, arr);
+})
+
+ arrr.forEach((element,index,arr)=>
+{
+    console.log("arrow :" ,index, element, arr);
+})
+
+const heros = ["nagraj", "doga", "dhruva", "maniraj"];
+
+heros.forEach((hero)=>{
+
+    console.log(hero.toUpperCase());
+
+});
+
+// map
+
+heros.map((hero, index, heros)=>{
+
+    console.log(index, hero, heros);
+});
+
+heros.map((hero)=>{
+
+    console.log(hero.toUpperCase())
+});
+
+// filter
+
+console.log(heros);
+
+const herosWithRaj = heros.filter((h)=>{
+
+    return  h.endsWith("raj");
+
+});
+
+console.log(herosWithRaj);
+
+                                    // reduce
+// shopping cart
+
+const cartBill = [2000,3000,4000];
+
+const sumOfCartBill = cartBill.reduce((previos,current)=> previos+current, 0);
+
+console.log(sumOfCartBill);
+
+                                // every
+const gameScore = [200, 300, 310, 250, 150];
+
+// Check whether all the values are numbers or not.
+
+ const gameScoreCheck=gameScore.every((value)=>{
+
+    return typeof value === 'number';
+
+});
+
+console.log(gameScoreCheck);
+
+
+// find
+
+// find score above 200 
+
+const scoreAbove200 = gameScore.find((value)=>{
+
+    return  value > 200;
+})
+
+console.log(scoreAbove200);
+
+                                // RegEx(Regular Expression)
+
+
+let pattern = 'pw';
+
+let regExOne = new RegExp(pattern);
+
+let flag = 'gi';
+
+let regExTwo = new RegExp(pattern,flag);
+
+let RegExThree = /pw/gi;
+
+const strToCheck = "PW is growing at a rapid speed and recently they are working on pwskills to create skills based PwContent";
+
+const result1 = RegExThree.test(strToCheck);
+
+console.log(result1);
+
+const result2 = strToCheck.match(RegExThree);
+
+console.log(result2);
+
+const result3 = strToCheck.replace(RegExThree,'p-w');
+
+
+console.log(result3);
+
+
+// Use case :
+const webUrl = "https://pwskills.com/hitesh%20choudhary";  // here %20 represents space...
+
+const useableUrl = webUrl.replace(/%\d\d/,'-') // here \d flag  is for numbers...
+
+console.log(useableUrl);
+
+
 
