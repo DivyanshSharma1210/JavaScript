@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Part 2</title>
+</head>
+<body>
+
+    <ul>
+        <li>One</li>
+        <li>Two</li>
+        <li>Three</li>
+    </ul>
+
+    <script>
+        //  Create an Element 
+       let title =  document.createElement("h1");
+
+       title.className="Top-Heading";
+       title.textContent="This is Heading 1";
+       title.style.fontSize="25px";
+       console.log(title);
+
+    //    Append Child
+       document.body.appendChild(title);
+
+    // Remove Child
+
+    let ul = document.querySelector("ul");
+
+    console.log(ul);
+
+    let lists = document.querySelectorAll("li");
+
+    console.log(lists);
+
+    for(list of lists)
+    {
+        ul.removeChild(list);
+    }
+    </script>
+</body>
+</html>
