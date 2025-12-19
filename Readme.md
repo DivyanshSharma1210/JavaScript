@@ -2925,3 +2925,322 @@ console.log(fullStack[0][1]);
 ### Output :
 
 ![Output](./Images/5/35.png)
+
+# Day-6
+
+## Loops
+
+Most of the activities we do in life are full of repititions. Imagine if I ask you to print out from 0 to 100 using ***console.log()***. To implement this simple task it may take you ***2 to 5 minutes,*** such kind of tedious and repititive task can be carried out using ***loop.*** 
+
+In programming languages to carry out repititive task we use different kinds of ***loops.*** THe following examples are the commonly used loops in JavaScript and other programming languages.
+
+## for Loop
+
+### Syntax :
+
+``` JavaScript
+
+// for loop structure
+
+for(initialization, condition, increment/decrement)
+{
+   // code goes here
+}
+
+```
+
+### Example 1 :
+
+``` JavaScript
+
+for(let i = 0; i<=5; i++)
+{
+  console.log(i);
+}
+
+```
+
+### Output :
+
+![Output](./Images/6/1.png)
+
+### Example 2 :
+
+``` JavaScript
+
+for(let i = 5 ; i >= 0; i--)
+{
+  console.log(i);
+}
+
+```
+### Output 2 :
+
+![Output](./Images/6/2.png)
+
+### Example 3 :
+
+``` JavaScript
+
+for(let i = 0; i <=5; i++)
+{
+ 
+    console.log(`${i} * ${i} = ${i*i}`);
+}
+
+```
+
+### Output 3 :
+
+![Output](./Images/6/3.png)
+
+### Example 4 :
+
+``` JavaScript
+
+const countries = ["Finland", "Sweden", "Denmark", "Norway", "Iceland"];
+
+const newArr = [];
+
+for(let i = 0; i<countries.length;i++)
+{
+    newArr.push(countries[i].toUpperCase());
+}
+
+console.log(newArr);
+
+```
+
+### Output 4 :
+
+![Output](./Images/6/4.png)
+
+## Adding all elements in the array 
+
+``` JavaScript
+
+const numbers = [11, 22, 33, 44, 55];
+
+let sum = 0;
+for(let i = 0; i<numbers.length; i++)
+{
+     sum += numbers[i];
+}
+
+console.log(sum);
+
+```
+
+### Output :
+
+![Output](./Images/6/5.png)
+
+## Creating a new array based on the existing array
+
+``` JavaScript
+
+const numbers = [11, 22, 33, 44, 55 ];
+
+const newArr = [];
+
+for(let i = 0; i<numbers.length; i++)
+{
+    newArr.push(numbers[i] ** 2);
+}
+
+console.log(newArr);
+
+```
+
+### Output :
+
+![Output](./Images/6/6.png)
+
+
+# While Loop
+
+### Example 1 :
+
+``` JavaScript
+
+let i = 0;
+
+while(i < 5)
+{
+  console.log(i);
+
+  i++;
+}
+
+```
+
+### Output :
+
+![Output](./Images/6/7.png)
+
+# do while loop
+
+### Example :
+
+``` JavaScript
+
+let i = 0;
+
+do
+{
+  console.log(i);
+  
+  i++
+}while(i <= 5);
+
+```
+
+### Output :
+
+![Output](./Images/6/8.png)
+
+# for of loop
+
+> We use ***for of loop for arrays.*** It is very hand way to iterate through an array if we are not interested in the ***index*** of each element in the array.
+
+### Syntax :
+
+``` JavaScript
+
+for(const element of arr)
+{
+    // code goes here...
+}
+
+```
+
+### Example 1 :
+
+``` JavaScript
+
+const numbers = [1, 2, 3, 4, 5];
+
+for(const num of numbers)
+{
+   console.log(num);
+}
+
+```
+
+### Output 1 :
+
+![Output](./Images/6/9.png)
+
+### Example 2 :
+
+``` JavaScript
+
+// Adding all elements in the array
+
+const numbers = [1, 2, 3, 4, 5];
+
+let sum = 0;
+
+for(const num of numbers)
+{
+    sum += num;
+}
+
+console.log(sum);
+
+```
+
+### Output :
+
+![Output](./Images/6/10.png)
+
+### Example 3 :
+
+``` JavaScript
+
+const webTechs = ["HTML", "CSS", "JavaScript", "TypeScript", "React", "Redux", "NodeJS", "Express", "MongoDB"];
+
+for(const tech of webTechs)
+{
+   console.log(tech.toUpperCase());
+}
+
+for(const tech of webTechs)
+{
+    console.log(tech[0]); // get only the first letter of each element.
+}
+
+```
+
+### Output :
+
+![Output](./Images/6/11.png)
+
+### Example 4 :
+
+``` JavaScript
+
+const countries = ["Finland", "Sweden", "Denmark", "Norway", "Iceland"];
+
+for(const country of countries)
+{
+   console.log(country.toUpperCase());
+}
+
+```
+
+### Output :
+
+![Output](./Images/6/12.png)
+
+## break
+
+> ***Break*** is used to interrupt a loop.
+
+### Example :
+
+``` JavaScript
+
+for(let i = 0; i<=5; i++)
+{
+    if(i == 3)
+    {
+       break;
+    }
+
+    console.log(i);
+}
+
+```
+
+### Output :
+
+![Output](./Images/6/13.png)
+
+> The above code ***stops*** if **3** founds in the iteration process.
+
+## continue
+
+> We use the ***keyword continue*** to **skip** a certain iterations.
+
+### Example :
+
+``` javaScript
+
+for(let i = 0; i <= 5;i++)
+{
+   if(i%2!=0)
+   {
+     continue;
+   }
+
+   console.log(i);
+}
+
+```
+
+### Output :
+
+![Output](./Images/6/14.png)
+
+
