@@ -211,7 +211,7 @@ getName → undefined
 
 ## 📂 Files in This Repository
 
-* `Hoisting.js` → All examples with inline explanations & diagrams
+* `js-hoisting-examples-explained.js` → All examples with inline explanations & diagrams
 * `README.md` → Conceptual explanation with visuals
 
 ---
@@ -223,3 +223,232 @@ getName → undefined
 * Use it for revision & interviews
 
 Happy Learning! 🚀
+
+---
+
+## 🧪 JavaScript Hoisting – All Examples Explained (With Output)
+
+Below are **real hoisting examples** embedded directly into this README, along with **memory creation phase, execution behavior, and outputs**.
+
+---
+
+### 🔹 Example 1 – Normal Order (No Surprise)
+
+```js
+var x = 7;
+
+function getName() {
+  console.log("Dibyansh Sharma");
+}
+
+getName();
+console.log(x);
+```
+
+**Memory Creation Phase**
+
+```
+x       → undefined
+getName → function definition
+```
+
+**Execution Phase**
+
+* `x` gets value `7`
+* `getName()` executes
+* `console.log(x)` prints `7`
+
+✅ **Output**
+
+```
+Dibyansh Sharma
+7
+```
+
+---
+
+### 🔹 Example 2 – Access Before Initialization
+
+```js
+getName();
+console.log(x);
+
+var x = 7;
+
+function getName() {
+  console.log("Dibyansh Sharma");
+}
+```
+
+**Why it works?**
+
+* Function is fully hoisted
+* `var x` exists but is `undefined`
+
+✅ **Output**
+
+```
+Dibyansh Sharma
+undefined
+```
+
+---
+
+### 🔹 Example 3 – Undeclared Variable
+
+```js
+getName();
+console.log(x);
+
+function getName() {
+  console.log("Dibyansh Sharma");
+}
+```
+
+❌ `x` was never declared → **ReferenceError**
+
+⛔ Program stops immediately after error.
+
+---
+
+### 🔹 Example 4 – Logging Function Reference
+
+```js
+var x = 7;
+
+function getName() {
+  console.log("Dibyansh Sharma");
+}
+
+console.log(getName);
+```
+
+📌 `getName` (without `()`) refers to the function object itself.
+
+✅ **Output**
+
+```
+ƒ getName() { ... }
+```
+
+---
+
+### 🔹 Example 5 – Function Hoisting Proof
+
+```js
+console.log(getName);
+
+var x = 7;
+
+function getName() {
+  console.log("Dibyansh Sharma");
+}
+```
+
+✔ Function declarations are hoisted completely.
+
+---
+
+### 🔹 Example 6 – Function Call vs Reference
+
+```js
+var x = 7;
+
+function getName() {
+  console.log("Dibyansh Sharma");
+}
+
+console.log(getName());
+console.log(x);
+console.log(getName);
+```
+
+🧠 `getName()` executes function and returns `undefined`.
+
+✅ **Output**
+
+```
+Dibyansh Sharma
+undefined
+7
+ƒ getName() { ... }
+```
+
+---
+
+### 🔹 Example 7 – Hoisting in Action
+
+```js
+console.log(getName());
+console.log(x);
+console.log(getName);
+
+var x = 7;
+
+function getName() {
+  console.log("Dibyansh Sharma");
+}
+```
+
+✔ Function is available
+✔ `var x` exists but is `undefined`
+
+---
+
+### 🔹 Example 8 – Arrow Function Hoisting ⚠️
+
+```js
+console.log(getName());
+
+var x = 7;
+
+var getName = () => {
+  console.log("Dibyansh Sharma");
+};
+```
+
+❌ Arrow functions behave like variables.
+
+**Memory Phase**
+
+```
+getName → undefined
+```
+
+Calling `undefined()` causes:
+
+🚫 **TypeError: getName is not a function**
+
+---
+
+## 📊 Execution Context & Call Stack (Visual Recap)
+
+```
+Global Execution Context
+├─ Memory Creation Phase
+│  ├─ var → undefined
+│  └─ function → full body
+└─ Execution Phase
+```
+
+Call Stack follows **LIFO**:
+
+```
+Global EC
+  ↑
+Function EC (push → pop)
+```
+
+---
+
+## 🎯 Final Takeaways
+
+✔ Function declarations are fully hoisted
+✔ `var` is hoisted as `undefined`
+✔ Arrow functions are NOT hoisted like functions
+✔ ReferenceError ≠ TypeError
+
+---
+
+> **Interview One-Liner:**
+> *Hoisting happens during the memory creation phase where variables get `undefined` and function declarations
