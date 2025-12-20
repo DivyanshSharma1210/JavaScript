@@ -1,39 +1,54 @@
-# 🚀 JavaScript Hoisting – Deep Dive with Examples
+# 🚀 JavaScript Scope, Hoisting & TDZ – Complete Guide
 
-This repository explains **JavaScript Hoisting** in a **clear, visual, and interview‑ready way** using real code examples.
+A **deep‑dive, interview‑ready guide** that explains how JavaScript executes code internally using **real examples, diagrams, and edge cases**.
 
-It focuses on **how JavaScript executes code internally** using:
+This README is built directly from the following learning files:
 
-* Global Execution Context (GEC)
-* Memory Creation Phase (Hoisting)
-* Execution Phase
-* Call Stack behavior
+* `Hoisting.js`
+* `js-undefined-vs-not-defined-explained.js`
+* `let-const-var-hoisting-and-tdz-explained.js`
 
 Perfect for:
 
-* 📘 Learning JavaScript internals
+* 📘 JavaScript fundamentals & internals
 * 🧑‍💻 Interview preparation
-* 📂 GitHub notes / portfolio
-* ✍️ Teaching & content creation
+* 📂 GitHub learning repository
+* ✍️ Teaching & LinkedIn content
 
 ---
 
-## 📌 What is Hoisting?
+## 📌 Table of Contents
 
-**Hoisting** is JavaScript’s default behavior of **moving declarations to the top of the scope during the Memory Creation Phase**.
-
-⚠️ Important:
-
-* Only **declarations** are hoisted
-* **Initializations are NOT hoisted**
+1. What is JavaScript Execution Context?
+2. Global Execution Context (GEC)
+3. Hoisting Explained
+4. `undefined` vs `not defined`
+5. `var`, `let`, `const` – Hoisting Behavior
+6. Temporal Dead Zone (TDZ)
+7. Shadowing & Illegal Shadowing
+8. Call Stack Explained
+9. Common Errors (Syntax / Reference / Type)
+10. Interview One‑Liners
 
 ---
 
-## 🧠 JavaScript Execution Model
+## 🧠 1. JavaScript Execution Context
 
-When a JS program runs, the engine creates a **Global Execution Context (GEC)**.
+When a JavaScript program runs, the JS engine creates an **Execution Context**.
 
-### Global Execution Context has 2 phases:
+There are three types:
+
+* **Global Execution Context**
+* **Function Execution Context**
+* **Eval Execution Context** (rare)
+
+---
+
+## 🌍 2. Global Execution Context (GEC)
+
+The **Global Execution Context** is created when the program starts.
+
+It has **two phases**:
 
 ### 1️⃣ Memory Creation Phase (Hoisting Phase)
 
@@ -44,11 +59,9 @@ When a JS program runs, the engine creates a **Global Execution Context (GEC)**.
 
 * Code runs line‑by‑line
 * Values are assigned
-* Functions are executed
+* Functions are invoked
 
----
-
-## 📊 Global Execution Context (Visual)
+### 📊 GEC Visual
 
 ```
 ┌─────────────────────────────────────┐
@@ -61,394 +74,233 @@ When a JS program runs, the engine creates a **Global Execution Context (GEC)**.
 
 ---
 
-## 📦 Memory Creation Phase (Hoisting)
+## ⬆️ 3. Hoisting Explained
 
-Example code:
+**Hoisting** is JavaScript’s behavior of allocating memory to declarations **before execution**.
 
-```js
-var x = 7;
-function getName() { console.log("Dibyansh Sharma"); }
-```
+⚠️ Important:
 
-Memory allocation:
+* Only **declarations** are hoisted
+* **Initializations are NOT hoisted**
 
-```
-┌───────────────────────────┐
-│ MEMORY (GLOBAL)           │
-├───────────────────────────┤
-│ x        → undefined      │
-│ getName  → ƒ () {...}     │
-└───────────────────────────┘
-```
-
-✔ `var` → hoisted as `undefined`
-✔ function declaration → hoisted with full body
-
----
-
-## ▶️ Execution Phase
-
-Now JavaScript executes the code line by line:
+### Example
 
 ```js
-var x = 7;      // x becomes 7
-getName();      // function executes
-console.log(x);// prints 7
-```
-
-Updated memory:
-
-```
-┌───────────────────────────┐
-│ MEMORY (GLOBAL)           │
-├───────────────────────────┤
-│ x        → 7              │
-│ getName  → ƒ () {...}     │
-└───────────────────────────┘
-```
-
----
-
-## 🧱 Call Stack (How Functions Run)
-
-JavaScript uses a **Call Stack (LIFO)** to manage execution contexts.
-
-### When program starts:
-
-```
-┌───────────────────────────┐
-│ Global Execution Context  │
-└───────────────────────────┘
-```
-
-### When a function is called:
-
-```
-┌───────────────────────────┐
-│ getName() EC              │ ← pushed
-├───────────────────────────┤
-│ Global Execution Context  │
-└───────────────────────────┘
-```
-
-### After function finishes:
-
-```
-┌───────────────────────────┐
-│ Global Execution Context  │ ← popped
-└───────────────────────────┘
-```
-
----
-
-## ⚠️ Function vs Function Call
-
-```js
-console.log(getName);   // function reference
-console.log(getName()); // function execution
-```
-
-| Expression  | Meaning                   |
-| ----------- | ------------------------- |
-| `getName`   | Refers to function object |
-| `getName()` | Executes the function     |
-
----
-
-## 🚨 Arrow Function Hoisting (Very Important)
-
-```js
-console.log(getName()); // ❌ TypeError
-
-var getName = () => {
-  console.log("Dibyansh Sharma");
-};
-```
-
-### Memory Phase:
-
-```
-getName → undefined
-```
-
-### Execution Phase:
-
-* JavaScript tries to execute `undefined()`
-* ❌ `TypeError: getName is not a function`
-
-📌 Arrow functions behave like variables, **not like function declarations**.
-
----
-
-## 🧾 Hoisting Summary Table
-
-| Declaration Type     | Hoisted As         |
-| -------------------- | ------------------ |
-| `var`                | `undefined`        |
-| Function Declaration | Full function body |
-| Function Expression  | `undefined`        |
-| Arrow Function       | `undefined`        |
-| `let` / `const`      | Temporal Dead Zone |
-
----
-
-## ❌ Errors Explained
-
-| Error          | Reason                     |
-| -------------- | -------------------------- |
-| ReferenceError | Variable not declared      |
-| TypeError      | Trying to call `undefined` |
-
----
-
-## 🎯 Interview One‑Liners
-
-> **“Hoisting happens during the memory creation phase where variables are initialized with `undefined` and function declarations are stored completely before execution begins.”**
-
-> **“Arrow functions are not hoisted like normal functions because they behave like variables.”**
-
----
-
-## 📂 Files in This Repository
-
-* `js-hoisting-examples-explained.js` → All examples with inline explanations & diagrams
-* `README.md` → Conceptual explanation with visuals
-
----
-
-## ⭐ If You Found This Helpful
-
-* Star ⭐ the repository
-* Share it with friends
-* Use it for revision & interviews
-
-Happy Learning! 🚀
-
----
-
-## 🧪 JavaScript Hoisting – All Examples Explained (With Output)
-
-Below are **real hoisting examples** embedded directly into this README, along with **memory creation phase, execution behavior, and outputs**.
-
----
-
-### 🔹 Example 1 – Normal Order (No Surprise)
-
-```js
-var x = 7;
-
-function getName() {
-  console.log("Dibyansh Sharma");
-}
-
-getName();
 console.log(x);
-```
-
-**Memory Creation Phase**
-
-```
-x       → undefined
-getName → function definition
-```
-
-**Execution Phase**
-
-* `x` gets value `7`
-* `getName()` executes
-* `console.log(x)` prints `7`
-
-✅ **Output**
-
-```
-Dibyansh Sharma
-7
-```
-
----
-
-### 🔹 Example 2 – Access Before Initialization
-
-```js
-getName();
-console.log(x);
-
 var x = 7;
-
-function getName() {
-  console.log("Dibyansh Sharma");
-}
 ```
-
-**Why it works?**
-
-* Function is fully hoisted
-* `var x` exists but is `undefined`
-
-✅ **Output**
-
-```
-Dibyansh Sharma
-undefined
-```
-
----
-
-### 🔹 Example 3 – Undeclared Variable
-
-```js
-getName();
-console.log(x);
-
-function getName() {
-  console.log("Dibyansh Sharma");
-}
-```
-
-❌ `x` was never declared → **ReferenceError**
-
-⛔ Program stops immediately after error.
-
----
-
-### 🔹 Example 4 – Logging Function Reference
-
-```js
-var x = 7;
-
-function getName() {
-  console.log("Dibyansh Sharma");
-}
-
-console.log(getName);
-```
-
-📌 `getName` (without `()`) refers to the function object itself.
-
-✅ **Output**
-
-```
-ƒ getName() { ... }
-```
-
----
-
-### 🔹 Example 5 – Function Hoisting Proof
-
-```js
-console.log(getName);
-
-var x = 7;
-
-function getName() {
-  console.log("Dibyansh Sharma");
-}
-```
-
-✔ Function declarations are hoisted completely.
-
----
-
-### 🔹 Example 6 – Function Call vs Reference
-
-```js
-var x = 7;
-
-function getName() {
-  console.log("Dibyansh Sharma");
-}
-
-console.log(getName());
-console.log(x);
-console.log(getName);
-```
-
-🧠 `getName()` executes function and returns `undefined`.
-
-✅ **Output**
-
-```
-Dibyansh Sharma
-undefined
-7
-ƒ getName() { ... }
-```
-
----
-
-### 🔹 Example 7 – Hoisting in Action
-
-```js
-console.log(getName());
-console.log(x);
-console.log(getName);
-
-var x = 7;
-
-function getName() {
-  console.log("Dibyansh Sharma");
-}
-```
-
-✔ Function is available
-✔ `var x` exists but is `undefined`
-
----
-
-### 🔹 Example 8 – Arrow Function Hoisting ⚠️
-
-```js
-console.log(getName());
-
-var x = 7;
-
-var getName = () => {
-  console.log("Dibyansh Sharma");
-};
-```
-
-❌ Arrow functions behave like variables.
 
 **Memory Phase**
 
 ```
-getName → undefined
+x → undefined
 ```
 
-Calling `undefined()` causes:
+**Execution Phase**
 
-🚫 **TypeError: getName is not a function**
+```
+x = 7
+```
+
+✅ Output:
+
+```
+undefined
+```
 
 ---
 
-## 📊 Execution Context & Call Stack (Visual Recap)
+## ❓ 4. `undefined` vs `not defined`
+
+### `undefined`
+
+* Variable is **declared**
+* Memory is allocated
+* Value not assigned yet
+
+```js
+console.log(a);
+var a = 10;
+```
+
+✅ Output:
 
 ```
-Global Execution Context
-├─ Memory Creation Phase
-│  ├─ var → undefined
-│  └─ function → full body
-└─ Execution Phase
+undefined
 ```
 
-Call Stack follows **LIFO**:
+---
+
+### `not defined`
+
+* Variable is **never declared**
+* No memory allocation
+
+```js
+console.log(x);
+```
+
+❌ Output:
+
+```
+ReferenceError: x is not defined
+```
+
+### Visual Difference
+
+```
+undefined        not defined
+──────────       ───────────
+Declared ✔       Declared ❌
+Memory ✔         Memory ❌
+Value ❌          Error 💥
+```
+
+---
+
+## 🧱 5. `var`, `let`, `const` – Hoisting Behavior
+
+### Memory Allocation Comparison
+
+```
+┌────────┬───────────────┬───────────────┬──────────────┐
+│ Type   │ Hoisted       │ TDZ           │ window obj   │
+├────────┼───────────────┼───────────────┼──────────────┤
+│ var    │ Yes           │ No            │ Yes          │
+│ let    │ Yes           │ Yes           │ No           │
+│ const  │ Yes           │ Yes (strict)  │ No           │
+└────────┴───────────────┴───────────────┴──────────────┘
+```
+
+### Example
+
+```js
+console.log(b);
+// undefined
+
+console.log(a);
+// ReferenceError (TDZ)
+
+let a = 10;
+var b = 20;
+```
+
+---
+
+## ⏳ 6. Temporal Dead Zone (TDZ)
+
+The **Temporal Dead Zone** is the time between:
+
+* Variable being hoisted
+* Variable being initialized
+
+During TDZ:
+
+* Accessing `let` or `const` throws **ReferenceError**
+
+### TDZ Timeline
+
+```
+Hoisting ────── TDZ ────── Initialization
+           ❌ Access        ✅ Access
+```
+
+---
+
+## 👤 7. Shadowing & Illegal Shadowing
+
+### Shadowing
+
+```js
+let x = 100;
+{
+  let x = 20;
+  console.log(x); // 20
+}
+console.log(x); // 100
+```
+
+✔ Inner variable shadows outer variable safely.
+
+---
+
+### Illegal Shadowing
+
+```js
+let a = 10;
+{
+  var a = 20; // ❌ Illegal shadowing
+}
+```
+
+🚫 You **cannot** shadow `let` with `var`.
+
+✔ Allowed:
+
+* let → let
+* const → const
+
+---
+
+## 📚 8. Call Stack Explained
+
+JavaScript uses a **Call Stack (LIFO)** to manage execution contexts.
+
+### Example
 
 ```
 Global EC
-  ↑
-Function EC (push → pop)
+└─ getName() EC (pushed)
+└─ getName() EC (popped)
 ```
 
+### Arrow Function Gotcha
+
+```js
+console.log(getName());
+
+var getName = () => {
+  console.log("Hello");
+};
+```
+
+❌ Output:
+
+```
+TypeError: getName is not a function
+```
+
+Reason:
+
+* Arrow functions behave like variables
+* Hoisted as `undefined`
+
 ---
 
-## 🎯 Final Takeaways
+## 🚨 9. Common Error Types
 
-✔ Function declarations are fully hoisted
-✔ `var` is hoisted as `undefined`
-✔ Arrow functions are NOT hoisted like functions
-✔ ReferenceError ≠ TypeError
+| Error Type     | Reason                      |
+| -------------- | --------------------------- |
+| SyntaxError    | Code parsing issue          |
+| ReferenceError | Variable inaccessible / TDZ |
+| TypeError      | Invalid operation on type   |
 
 ---
 
-> **Interview One-Liner:**
-> *Hoisting happens during the memory creation phase where variables get `undefined` and function declarations
+## 🎯 10. Interview One‑Liners
+
+> **Hoisting happens during the memory creation phase where variables are initialized with `undefined` and function declarations are stored fully before execution.**
+
+> **`undefined` means memory exists but no value; `not defined` means no declaration at all.**
+
+> **`let` and `const` are hoisted but inaccessible due to the Temporal Dead Zone.**
+
+---
+
+## ⭐ Final Notes
+
+✔ Avoid `var` in modern JavaScript
+✔ Prefer `let` & `const`
+✔ Understand execution context for debugging
+
+Happy Learning 🚀
